@@ -1,0 +1,29 @@
+airflow:
+  connections:
+    - conn_id: my_postgres_connection
+      conn_type: postgres
+      conn_host: postgres
+      conn_schema: airflow_ops
+      conn_login: airflow_user
+      conn_password: change_me
+      conn_port: 5432
+      conn_extra: {}
+
+    - conn_id: nasa_api
+      conn_type: http
+      conn_host: https://api.nasa.gov
+      conn_schema:
+      conn_login:
+      conn_password:
+      conn_port:
+      conn_extra:
+        api_key: replace_with_real_key
+
+  pools:
+    - pool_name: etl_pool
+      pool_slot: 4
+      pool_description: Pool for ETL tasks
+
+  variables:
+    - variable_name: environment
+      variable_value: local
